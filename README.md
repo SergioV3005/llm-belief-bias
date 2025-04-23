@@ -35,7 +35,7 @@ pip install -r requirements.txt
 ### 4. Install Ollama
 
 Follow installation instructions for your OS here:  
-👉 [https://ollama.com/download](https://ollama.com/download)
+[https://ollama.com/download](https://ollama.com/download)
 
 ### 5. Start Ollama and Download the Model
 
