@@ -1,10 +1,14 @@
+"""
+In this script, we will run a high-range IQ test using the Ollama on local LLMs
+"""
+
 import requests
 
-# Define the model and endpoint
+# Select the model and define the endpoint
 OLLAMA_URL = "http://localhost:11434/api/generate"
-MODEL_NAME = "mistral"  # Change this to your active model in Ollama
+MODEL_NAME = "mistral"  
 
-# Define high-range IQ questions
+# Define IQ questions
 questions = [
     {
         "id": 1,
@@ -20,7 +24,7 @@ questions = [
     },
 ]
 
-# Function to query the Ollama model
+# Query the model
 def query_ollama(prompt):
     response = requests.post(OLLAMA_URL, json={
         "model": MODEL_NAME,
@@ -32,7 +36,6 @@ def query_ollama(prompt):
     else:
         return f"Error: {response.status_code} - {response.text}"
 
-# Main execution
 def run_iq_test():
     print("Running High-Range IQ Test on Ollama model:", MODEL_NAME)
     results = []
