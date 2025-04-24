@@ -1,4 +1,6 @@
 import requests
+import datetime
+import os
 
 # Define the endpoint
 OLLAMA_URL = "http://localhost:11434/api/generate"
@@ -49,6 +51,24 @@ def run_iq_test(model_name):
         })
     return results
 
+import os
+
+def save_results(results, model_name):
+    output_dir = "output"
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+    filename = f"{output_dir}/iq_test_results_{model_name}.md"
+    with open(filename, 'w', encoding='utf-8') as file:
+        for result in results:
+            file.write(f"## Question {result['question_id']}\n\n")
+            file.write(f"**Question:**\n{result['question']}\n\n")
+            file.write(f"**Answer:**\n{result['answer']}\n\n")
+        print(f"\nResults saved to {filename}")
+
+
 if __name__ == "__main__":
+    all_results = []
     for model in MODEL_NAMES:
-        run_iq_test(model)
+        results = run_iq_test(model)
+        save_results(results, model)
+        all_results.extend(results)
