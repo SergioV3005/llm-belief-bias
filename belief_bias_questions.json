@@ -1,0 +1,114 @@
+[
+    {
+        "id": 1,
+        "prompt": "You will be shown a syllogism. Your task is to determine whether the conclusion logically follows from the premises, regardless of whether the conclusion is factually true or believable.\n\nSyllogism:\n\nPremise 1: All mammals have hearts.\nPremise 2: All dogs are mammals.\nConclusion: Therefore, all dogs have hearts.\n\nQuestion: Is the conclusion logically valid (i.e., does it follow from the premises)? Answer with Valid or Invalid and explain your reasoning.",
+        "logical_validity": "Valid",
+        "believability": "Believable",
+        "expected_answer": "Valid"
+    },
+    {
+        "id": 2,
+        "prompt": "You will be shown a syllogism. Your task is to determine whether the conclusion logically follows from the premises, regardless of whether the conclusion is factually true or believable.\n\nSyllogism:\n\nPremise 1: All creatures with wings are reptiles.\nPremise 2: All birds have wings.\nConclusion: Therefore, all birds are reptiles.\n\nQuestion: Is the conclusion logically valid (i.e., does it follow from the premises)? Answer with Valid or Invalid and explain your reasoning.",
+        "logical_validity": "Valid",
+        "believability": "Unbelievable",
+        "expected_answer": "Valid"
+    },
+    {
+        "id": 3,
+        "prompt": "You will be shown a syllogism. Your task is to determine whether the conclusion logically follows from the premises, regardless of whether the conclusion is factually true or believable.\n\nSyllogism:\n\nPremise 1: All flowers need water.\nPremise 2: Roses need water.\nConclusion: Therefore, roses are flowers.\n\nQuestion: Is the conclusion logically valid (i.e., does it follow from the premises)? Answer with Valid or Invalid and explain your reasoning.",
+        "logical_validity": "Invalid",
+        "believability": "Believable",
+        "expected_answer": "Invalid"
+    },
+    {
+        "id": 4,
+        "prompt": "You will be shown a syllogism. Your task is to determine whether the conclusion logically follows from the premises, regardless of whether the conclusion is factually true or believable.\n\nSyllogism:\n\nPremise 1: All cars are animals.\nPremise 2: Some animals are trees.\nConclusion: Therefore, some cars are trees.\n\nQuestion: Is the conclusion logically valid (i.e., does it follow from the premises)? Answer with Valid or Invalid and explain your reasoning.",
+        "logical_validity": "Invalid",
+        "believability": "Unbelievable",
+        "expected_answer": "Invalid"
+    },
+    {
+        "id": 5,
+        "prompt": "You will be shown a syllogism. Your task is to determine whether the conclusion logically follows from the premises, regardless of whether the conclusion is factually true or believable.\n\nSyllogism:\n\nPremise 1: All vegetables contain fiber.\nPremise 2: All carrots are vegetables.\nConclusion: Therefore, all carrots contain fiber.\n\nQuestion: Is the conclusion logically valid (i.e., does it follow from the premises)? Answer with Valid or Invalid and explain your reasoning.",
+        "logical_validity": "Valid",
+        "believability": "Believable",
+        "expected_answer": "Valid"
+    },
+    {
+        "id": 6,
+        "prompt": "You will be shown a syllogism. Your task is to determine whether the conclusion logically follows from the premises, regardless of whether the conclusion is factually true or believable.\n\nSyllogism:\n\nPremise 1: All things that fly are made of metal.\nPremise 2: All airplanes fly.\nConclusion: Therefore, all airplanes are made of metal.\n\nQuestion: Is the conclusion logically valid (i.e., does it follow from the premises)? Answer with Valid or Invalid and explain your reasoning.",
+        "logical_validity": "Valid",
+        "believability": "Unbelievable",
+        "expected_answer": "Valid"
+    },
+    {
+        "id": 7,
+        "prompt": "You will be shown a syllogism. Your task is to determine whether the conclusion logically follows from the premises, regardless of whether the conclusion is factually true or believable.\n\nSyllogism:\n\nPremise 1: All cats are animals.\nPremise 2: Dogs are animals.\nConclusion: Therefore, dogs are cats.\n\nQuestion: Is the conclusion logically valid (i.e., does it follow from the premises)? Answer with Valid or Invalid and explain your reasoning.",
+        "logical_validity": "Invalid",
+        "believability": "Believable",
+        "expected_answer": "Invalid"
+    },
+    {
+        "id": 8,
+        "prompt": "You will be shown a syllogism. Your task is to determine whether the conclusion logically follows from the premises, regardless of whether the conclusion is factually true or believable.\n\nSyllogism:\n\nPremise 1: All ghosts are smartphones.\nPremise 2: No smartphones are trees.\nConclusion: Therefore, all ghosts are trees.\n\nQuestion: Is the conclusion logically valid (i.e., does it follow from the premises)? Answer with Valid or Invalid and explain your reasoning.",
+        "logical_validity": "Invalid",
+        "believability": "Unbelievable",
+        "expected_answer": "Invalid"
+    },
+    {
+        "id": 9,
+        "prompt": "You will be shown a syllogism. Your task is to determine whether the conclusion logically follows from the premises, regardless of whether the conclusion is factually true or believable.\n\nSyllogism:\n\nPremise 1: All insects have six legs.\nPremise 2: All ants are insects.\nConclusion: Therefore, all ants have six legs.\n\nQuestion: Is the conclusion logically valid (i.e., does it follow from the premises)? Answer with Valid or Invalid and explain your reasoning.",
+        "logical_validity": "Valid",
+        "believability": "Believable",
+        "expected_answer": "Valid"
+      },
+      {
+        "id": 10,
+        "prompt": "You will be shown a syllogism. Your task is to determine whether the conclusion logically follows from the premises, regardless of whether the conclusion is factually true or believable.\n\nSyllogism:\n\nPremise 1: All computers require electricity.\nPremise 2: All laptops are computers.\nConclusion: Therefore, all laptops require electricity.\n\nQuestion: Is the conclusion logically valid (i.e., does it follow from the premises)? Answer with Valid or Invalid and explain your reasoning.",
+        "logical_validity": "Valid",
+        "believability": "Believable",
+        "expected_answer": "Valid"
+      },
+      {
+        "id": 11,
+        "prompt": "You will be shown a syllogism. Your task is to determine whether the conclusion logically follows from the premises, regardless of whether the conclusion is factually true or believable.\n\nSyllogism:\n\nPremise 1: All diamonds are made of water.\nPremise 2: All rings contain diamonds.\nConclusion: Therefore, all rings contain water.\n\nQuestion: Is the conclusion logically valid (i.e., does it follow from the premises)? Answer with Valid or Invalid and explain your reasoning.",
+        "logical_validity": "Valid",
+        "believability": "Unbelievable",
+        "expected_answer": "Valid"
+      },
+      {
+        "id": 12,
+        "prompt": "You will be shown a syllogism. Your task is to determine whether the conclusion logically follows from the premises, regardless of whether the conclusion is factually true or believable.\n\nSyllogism:\n\nPremise 1: All fish live in trees.\nPremise 2: All trout are fish.\nConclusion: Therefore, all trout live in trees.\n\nQuestion: Is the conclusion logically valid (i.e., does it follow from the premises)? Answer with Valid or Invalid and explain your reasoning.",
+        "logical_validity": "Valid",
+        "believability": "Unbelievable",
+        "expected_answer": "Valid"
+      },
+      {
+        "id": 13,
+        "prompt": "You will be shown a syllogism. Your task is to determine whether the conclusion logically follows from the premises, regardless of whether the conclusion is factually true or believable.\n\nSyllogism:\n\nPremise 1: All dogs are animals.\nPremise 2: All cats are animals.\nConclusion: Therefore, all cats are dogs.\n\nQuestion: Is the conclusion logically valid (i.e., does it follow from the premises)? Answer with Valid or Invalid and explain your reasoning.",
+        "logical_validity": "Invalid",
+        "believability": "Believable",
+        "expected_answer": "Invalid"
+      },
+      {
+        "id": 14,
+        "prompt": "You will be shown a syllogism. Your task is to determine whether the conclusion logically follows from the premises, regardless of whether the conclusion is factually true or believable.\n\nSyllogism:\n\nPremise 1: All books contain pages.\nPremise 2: A notebook contains pages.\nConclusion: Therefore, a notebook is a book.\n\nQuestion: Is the conclusion logically valid (i.e., does it follow from the premises)? Answer with Valid or Invalid and explain your reasoning.",
+        "logical_validity": "Invalid",
+        "believability": "Believable",
+        "expected_answer": "Invalid"
+      },
+      {
+        "id": 15,
+        "prompt": "You will be shown a syllogism. Your task is to determine whether the conclusion logically follows from the premises, regardless of whether the conclusion is factually true or believable.\n\nSyllogism:\n\nPremise 1: All sandwiches are satellites.\nPremise 2: All satellites are unicorns.\nConclusion: Therefore, all sandwiches are unicorns.\n\nQuestion: Is the conclusion logically valid (i.e., does it follow from the premises)? Answer with Valid or Invalid and explain your reasoning.",
+        "logical_validity": "Invalid",
+        "believability": "Unbelievable",
+        "expected_answer": "Invalid"
+      },
+      {
+        "id": 16,
+        "prompt": "You will be shown a syllogism. Your task is to determine whether the conclusion logically follows from the premises, regardless of whether the conclusion is factually true or believable.\n\nSyllogism:\n\nPremise 1: All chairs are made of jelly.\nPremise 2: Some jelly is invisible.\nConclusion: Therefore, some chairs are invisible.\n\nQuestion: Is the conclusion logically valid (i.e., does it follow from the premises)? Answer with Valid or Invalid and explain your reasoning.",
+        "logical_validity": "Invalid",
+        "believability": "Unbelievable",
+        "expected_answer": "Invalid"
+      }
+]
