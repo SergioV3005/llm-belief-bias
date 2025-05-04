@@ -7,10 +7,10 @@ from collections import defaultdict
 
 # Config
 OLLAMA_URL = "http://localhost:11434/api/generate"
-MODEL_NAME = "mistral"
+MODEL_NAME = "llama3.2:1b"
 QUESTIONS_FILE = "belief_bias_questions.json"
-CSV_OUTPUT = f"{MODEL_NAME}_belief_bias_results.csv"
-PNG_OUTPUT = f"{MODEL_NAME}_belief_bias_chart.png"
+CSV_OUTPUT = f"model_belief_bias_results.csv"
+PNG_OUTPUT = f"model_belief_bias_chart.png"
 
 # Load questions
 with open(QUESTIONS_FILE, "r", encoding="utf-8") as f:
@@ -20,7 +20,10 @@ def query_ollama(prompt):
     response = requests.post(OLLAMA_URL, json={
         "model": MODEL_NAME,
         "prompt": prompt,
-        "stream": False
+        "stream": False,
+        "options": {
+            "temperature": 0.7
+        }
     })
     if response.status_code == 200:
         return response.json().get("response", "").strip()
@@ -29,19 +32,27 @@ def query_ollama(prompt):
 
 def extract_answer(response_text):
     match = re.search(r"\b(Valid|Invalid)\b", response_text, re.IGNORECASE)
-    return match.group(1).capitalize() if match else "Unclear"
-
+    if match:
+        return match.group(1).capitalize()
+    else:
+        print(" Unable to parse response:", response_text[:100])
+        return "Unclear"
+    
 def run_belief_bias_test():
     print("Running Belief Bias Test on Ollama model:", MODEL_NAME)
     results = []
 
     for q in questions:
+
         print(f"\n=== Question {q['id']} ===")
         print(q["prompt"])
         response = query_ollama(q["prompt"])
-        print("Response:\n", response)
         parsed = extract_answer(response)
         correct = parsed == q["expected_answer"]
+        
+        print("Response:\n", response)
+        print(f"Extracted answer: {parsed} | Expected: {q['expected_answer']} | Correct: {correct}")
+
         results.append({
             "id": q["id"],
             "logical_validity": q["logical_validity"],
