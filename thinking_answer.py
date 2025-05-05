@@ -7,7 +7,7 @@ from collections import defaultdict
 
 # Config
 OLLAMA_URL = "http://localhost:11434/api/generate"
-MODEL_NAME = "llama3.2:1b"
+MODEL_NAME = "qwen3:8b"
 QUESTIONS_FILE = "belief_bias_questions.json"
 CSV_OUTPUT = f"model_belief_bias_results.csv"
 PNG_OUTPUT = f"model_belief_bias_chart.png"
@@ -31,9 +31,9 @@ def query_ollama(prompt):
         return f"Error: {response.status_code} - {response.text}"
 
 def extract_answer(response_text):
-    match = re.search(r"\b(Valid|Invalid)\b", response_text, re.IGNORECASE)
-    if match:
-        return match.group(1).capitalize()
+    matches = re.findall(r"\b(Valid|Invalid)\b", response_text, re.IGNORECASE)
+    if matches:
+        return matches[-1].capitalize()  # Take the last occurrence
     else:
         print(" Unable to parse response:", response_text[:100])
         return "Unclear"
