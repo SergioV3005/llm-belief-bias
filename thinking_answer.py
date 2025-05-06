@@ -22,7 +22,7 @@ def query_ollama(prompt):
         "prompt": prompt,
         "stream": False,
         "options": {
-            "temperature": 0.0
+            "temperature": 0
         }
     })
     if response.status_code == 200:
