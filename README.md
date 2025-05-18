@@ -2,12 +2,18 @@
 
 ![Example output: distribution of accuracy for conflictual and non-conflictual items for [qwen3:8b](https://ollama.com/library/qwen3)](https://github.com/user-attachments/assets/0d3472a1-4a51-4941-b20c-805f718eb232)
 
-This project tests local large language model (LLM) using syllogisms to detect the presence of belief bias. It uses [Ollama](https://ollama.com/) to run the models model locally. The test is defined in the file belief_bias_questions.json.
+This project tests Local Large Language Models (LLMs) using **syllogisms** to detect the presence of **Belief Bias (BB)**. It uses [Ollama](https://ollama.com/) to run the models model locally. The test is defined in the file belief_bias_questions.json and it was created by the authors of the repository.
 
 In particular, the following LLMs are tested:
 1. [llama3.2:1b](https://ollama.com/library/llama3.2)
 2. [Mistral](https://ollama.com/library/mistral)
 3. [qwen3:8b](https://ollama.com/library/qwen3)
+
+The experiments involve the test of each LLM (configured with **temperature** equal to 0 and to 0.7) to see the distribution of accuracy in **conflictual** and **non-conflictual** items. In particular, the conflictual items are defined as the valid-inbelievable and the invalid-believable items, while the non-conflictual ones as the valid-believable and invalid-unbelievable ones. If the errors display correlation between the conflictuality and non-conflictuality of the item, then there is a signal of BB.  
+
+![image](https://github.com/user-attachments/assets/f95062ba-f9fc-4a5d-a186-6f7269ca605f)
+
+For a comparison, the test is also experimented on a set of humans.
 
 ## Setup Instructions
 
