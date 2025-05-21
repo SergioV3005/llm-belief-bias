@@ -2,7 +2,7 @@
 
 ![Example output: distribution of accuracy for conflictual and non-conflictual items for [qwen3:8b](https://ollama.com/library/qwen3)](https://github.com/user-attachments/assets/0d3472a1-4a51-4941-b20c-805f718eb232)
 
-This project tests Local Large Language Models (LLMs) using **syllogisms** to detect the presence of **Belief Bias (BB)**. It uses [Ollama](https://ollama.com/) to run the models model locally. The test is defined in the file belief_bias_questions.json and it was created by the authors of the repository.
+This project tests Local Large Language Models (LLMs) using **syllogisms** to detect the presence of **Belief Bias (BB)**. It uses [Ollama](https://ollama.com/) to run the models model locally. The test is defined in the file belief_bias_questions.json and it was created by the authors of the repository. You can test yourself by clicking [here](https://longocris.github.io/Belief-Bias-Questionnaire/) or you can check out the [quiz repository](https://github.com/LongoCris/Belief-Bias-Questionnaire)
 
 In particular, the following LLMs are tested:
 1. [llama3.2:1b](https://ollama.com/library/llama3.2)
