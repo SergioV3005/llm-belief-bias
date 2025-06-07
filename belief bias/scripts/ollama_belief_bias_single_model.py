@@ -2,15 +2,18 @@ import requests
 import re
 import json
 import csv
+import os
 import matplotlib.pyplot as plt
 from collections import defaultdict
 
-# Config
+# Configuration
 OLLAMA_URL = "http://localhost:11434/api/generate"
 MODEL_NAME = "llama3.2:1b"
-QUESTIONS_FILE = "belief_bias_questions.json"
-CSV_OUTPUT = f"model_belief_bias_results.csv"
-PNG_OUTPUT = f"model_belief_bias_chart.png"
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+QUESTIONS_FILE = os.path.join(BASE_DIR, "test", "belief_bias_questions.json")
+CSV_OUTPUT = os.path.join(BASE_DIR, "output", "model_belief_bias_results.csv")
+PNG_OUTPUT = os.path.join(BASE_DIR, "output", "model_belief_bias_chart.png")
 
 # Load questions
 with open(QUESTIONS_FILE, "r", encoding="utf-8") as f:
