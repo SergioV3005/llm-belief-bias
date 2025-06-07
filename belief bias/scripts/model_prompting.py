@@ -9,8 +9,6 @@ from collections import defaultdict
 
 # Configuration
 OLLAMA_URL = "http://localhost:11434/api/generate"
-MODEL_NAME = "llama3.2:1b"
-
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 QUESTIONS_FILE = os.path.join(BASE_DIR, "test", "belief_bias_questions.json")
 CSV_OUTPUT = os.path.join(BASE_DIR, "output", "model_belief_bias_results.csv")

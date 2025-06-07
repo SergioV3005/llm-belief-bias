@@ -9,8 +9,6 @@ from collections import defaultdict
 
 # Configuration
 OLLAMA_URL = "http://localhost:11434/api/generate"
-MODEL_NAME = "qwen3:8b"
-
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 QUESTIONS_FILE = os.path.join(BASE_DIR, "test", "belief_bias_questions.json")
 CSV_OUTPUT = os.path.join(BASE_DIR, "output", "model_belief_bias_results.csv")
@@ -118,7 +116,7 @@ def analyze_and_plot(results):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Belief Bias Model Runner")
-    parser.add_argument("--model_name", type=str, default="llama3.2:1b", help="Name of the model to use. Ensure to have previously downloaded the model from Ollama. Default is 'llama3.2:1b'.")
+    parser.add_argument("--model_name", type=str, default="qwen3:8b", help="Name of the model to use. Ensure to have previously downloaded the model from Ollama. Default is 'llama3.2:1b'.")
     args = parser.parse_args()
 
     MODEL_NAME = args.model_name
