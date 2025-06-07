@@ -3,6 +3,7 @@ import re
 import json
 import csv
 import os
+import argparse
 import matplotlib.pyplot as plt
 from collections import defaultdict
 
@@ -116,6 +117,14 @@ def analyze_and_plot(results):
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Belief Bias Model Runner")
+    parser.add_argument("--model_name", type=str, default="llama3.2:1b", help="Name of the model to use. Ensure to have previously downloaded the model from Ollama. Default is 'llama3.2:1b'.")
+    args = parser.parse_args()
+
+    MODEL_NAME = args.model_name
+    
+    print(f"Using model: {MODEL_NAME}")
+    
     results = run_belief_bias_test()
     export_to_csv(results)
     analyze_and_plot(results)
