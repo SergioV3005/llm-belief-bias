@@ -1,108 +1,129 @@
-### Belief Bias evaluation of local LLMs with Ollama 
+# Do Local LLMs Fall for Belief Bias?  
+**Evaluating Syllogistic Reasoning and Cognitive Bias in Offline Language Models**
 
-![Example output: distribution of accuracy for conflictual and non-conflictual items for [qwen3:8b](https://ollama.com/library/qwen3)](https://github.com/user-attachments/assets/0d3472a1-4a51-4941-b20c-805f718eb232)
+![Example output: distribution of accuracy for conflictual and non-conflictual items for qwen3:8b](https://github.com/user-attachments/assets/0d3472a1-4a51-4941-b20c-805f718eb232)
 
-This project tests Local Large Language Models (LLMs) using **syllogisms** to detect the presence of **Belief Bias (BB)**. It uses [Ollama](https://ollama.com/) to run the models model locally. The test is defined in the file **belief_bias_questions.json** and it was created by the authors of the repository.\
+This project investigates whether **local Large Language Models (LLMs)** running via [Ollama](https://ollama.com/) are subject to **Belief Bias (BB)**—a cognitive bias where logically invalid but *believable* conclusions are wrongly accepted. It compares model performance against human reasoning using a **syllogistic logic test**.
 
-**You can test yourself by clicking [here](https://longocris.github.io/Belief-Bias-Questionnaire/) or you can check out the [quiz repository](https://github.com/LongoCris/Belief-Bias-Questionnaire)**
+You can explore or take the test yourself:  
+[Belief Bias Questionnaire (Live)](https://longocris.github.io/Belief-Bias-Questionnaire)  
+[Questionnaire GitHub Repository](https://github.com/LongoCris/Belief-Bias-Questionnaire)
 
-In particular, the following LLMs are tested:
-1. [llama3.2:1b](https://ollama.com/library/llama3.2): a lightweight baseline model from LLaMa 3.2 family
-2. [Mistral](https://ollama.com/library/mistral): a 7b model designed for long-context reasoning
-3. [qwen3:8b](https://ollama.com/library/qwen3): a very recent model optimized for instructions and logical tasks
+---
 
-The experiments involve the test of each LLM (configured with **temperature** equal to 0 and to 0.7) to see the distribution of accuracy in **conflictual** and **non-conflictual** items. 
+## What Is Belief Bias?
 
-In particular, the conflictual items are defined as the valid-inbelievable and the invalid-believable items, while the non-conflictual ones as the valid-believable and invalid-unbelievable ones. If the errors display correlation between the conflictuality and non-conflictuality of the items, then there is a signal of BB.  
+**Belief Bias** refers to the tendency to judge arguments based on the believability of their conclusions rather than their logical validity. This project builds on **Dual-Process Theory**:
+- **System 1**: Fast, intuitive, belief-driven reasoning.
+- **System 2**: Slow, analytical, logic-based reasoning.
 
-![image](https://github.com/user-attachments/assets/f95062ba-f9fc-4a5d-a186-6f7269ca605f)
+By designing a logic test that creates **conflictual cases** (logical validity contradicts believability) and **non-conflictual cases** (validity aligns with belief), we assess whether local LLMs rely more on intuition (like humans) or on formal logic.
 
-For a comparison, the test is also experimented on a set of humans, as shown in the presentation and in the report.
+---
 
-### Belief Bias Questionnaire
+## Methodology
 
-The questionnaire consists of **16 items** balanced across the four categories:
-* Valid-Believable (VB): 4 items
-* Invalid-Believable (IB): 4 items
-* Valid-Unbelievable (VU): 4 items 
-* Invalid-Unbelievable (IU): 4 items
+We designed a **16-item syllogistic test** comprising:
+- 4 categories × 4 items each:
+  - Valid–Believable (VB)
+  - Invalid–Believable (IB)
+  - Valid–Unbelievable (VU)
+  - Invalid–Unbelievable (IU)
+- Difficulty balance: 3 regular (2-premise) and 1 hard (3-premise) syllogism per category.
+- Human participants had 20s per question to simulate System 1 bias.
+- Each model was prompted in a controlled format:
 
-In each category, three items are of **regular** difficulty (being composed of two premises and one conclusion), while one item is **hard** (being composed of three premises and the conclusion). This, for the set of humans, is done to avoid adaptation to the difficulty of the item.
+```text
+You will be shown a syllogism. Your task is to determine whether the conclusion logically follows from the premises, regardless of whether the conclusion is factually true or believable.
+...
+Question: Is the conclusion logically valid? Answer with Valid or Invalid and explain your reasoning.
+```
 
-For the humans, one neutral item was added to the questionnaire to stimulate **attention**. Each item required valid or invalid responses within **20 seconds**, to encourage intuitive processing. One item included open-ended explanation to examine the reasoning behind the decision and to compare it to LLMs.
+## Models Evaluated
 
-### Results
+We tested the following local models with **Ollama** under two configurations (temperature = 0.0 and 0.7):
 
-| Model         | Temperature | Average Accuracy | Belief Bias Signal |
-|---------------|-------------|------------------|--------------------|
-| Llama3.2:1b   | 0.0         | Low              | Present            |
-| Llama3.2:1b   | 0.7         | Low–Medium       | Present            |
-| Mistral:7b    | 0.0         | Medium           | Moderate           |
-| Mistral:7b    | 0.7         | Medium           | Moderate           |
-| **Qwen3:8b**  | **0.0**     | **High**         | **Absent**         |
-| Qwen3:8b      | 0.7         | High             | Low                |
+| Model         | Parameters | Type                          |
+|---------------|------------|-------------------------------|
+| LLaMa 3.2:1b  | 1B         | Lightweight, baseline         |
+| Mistral:7b    | 7B         | Long-context, reasoning-tuned |
+| Qwen 3:8b     | 8B         | Reasoning-focused, instruction-tuned |
 
-The precise distribution of the errors can be found in the presentation.
+---
 
-As for the control group of humans (balanced gender, minimum B2 english and Bachelor's degree holders), the results showed expression of BB, especially due to the time pressure.
+## Results Summary
 
-### Conclusions
+| Model         | Temperature | Accuracy     | Belief Bias Signal |
+|---------------|-------------|--------------|---------------------|
+| LLaMa3.2:1b   | 0.0         | Low          | Present             |
+| LLaMa3.2:1b   | 0.7         | Low–Medium   | Present             |
+| Mistral:7b    | 0.0         | Medium       | Moderate            |
+| Mistral:7b    | 0.7         | Medium       | Moderate            |
+| **Qwen3:8b**  | **0.0**     | **High**     | **Absent**          |
+| Qwen3:8b      | 0.7         | High         | Low                 |
 
-BB is not unique to humans. Some LLMs mimic it under certain configurations. Model complexity and architecture (not temperature alone) determine the expression of BB.
+**Key Insight:** Only **Qwen 3:8b at temperature 0** showed strong logical consistency and no detectable belief bias.
 
-For deeper insights, see our report.
+---
+
+## Human Benchmark
+
+A control group of **9 human participants** (with minimum B2 English and Bachelor's degree) completed the same questionnaire. They exhibited **clear Belief Bias**, particularly in accepting *invalid–believable* conclusions. This mirrors known results in cognitive psychology and validates the questionnaire design.
+
+---
+
+## 🎓 Conclusions
+
+- **Belief Bias is not unique to humans.** Smaller, older LLMs can replicate it—especially under conflictual item types.
+- **Architecture > Temperature.** Model scale and training strategy are more decisive than temperature for BB resistance.
+- **Qwen 3:8b** is the most aligned with formal logic, showing near-complete immunity to BB at T=0.
+
+---
+
+## Future Work
+
+The project can be expanded by:
+- Testing **larger or more diverse models** (e.g., Qwen 14b+, LLaMa 3.4, Mixtral).
+- **Improving the human study** with more participants and tracking response times.
+- Applying **statistical analysis** to correlate accuracy drop with syllogism conflictuality.
+
+---
 
 ## Setup Instructions
 
-Followingly, a quick-guide on how to reproduce the project.
-
 ### 1. Clone the Repository
 ```bash
-bash
 git clone https://github.com/SergioV3005/llm-belief-bias.git
 cd llm-belief-bias
 ```
 
 ### 2. Create and Activate a Virtual Environment
-
 ```bash
 python -m venv venv
-# Activate it
 # macOS/Linux
 source venv/bin/activate
-# Windows PowerShell
+# Windows
 venv\Scripts\activate
 ```
 
 ### 3. Install Dependencies
-
-To install the needed libraries in the virtual enviroment, run the following command.
-
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. Install Ollama
+### 4. Install Ollama and Pull a Model
+Install Ollama: [https://ollama.com/download](https://ollama.com/download)
 
-Follow installation instructions for your OS here:  
-[https://ollama.com/download](https://ollama.com/download)
-
-### 5. Start Ollama and Download the Model
-
-For example, in Mistral case, the command is as follows.
-
+Example for Mistral:
 ```bash
 ollama pull mistral
-```
-
-Then you can run the model manually if needed:
-
-```bash
 ollama run mistral
 ```
 
-The script communicates with http://localhost:11434 by default.
+The script communicates with `http://localhost:11434` by default.
+
+---
 
 ## License
 
-MIT License. Free to use and modify.
+MIT License — free to use and modify.
