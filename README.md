@@ -34,7 +34,9 @@ We designed a **16-item syllogistic test** comprising:
 - Each model was prompted in a controlled format:
 
 ```text
-You will be shown a syllogism. Your task is to determine whether the conclusion logically follows from the premises, regardless of whether the conclusion is factually true or believable.
+You will be shown a syllogism.
+Your task is to determine whether the conclusion logically follows from the premises,
+regardless of whether the conclusion is factually true or believable.
 ...
 Question: Is the conclusion logically valid? Answer with Valid or Invalid and explain your reasoning.
 ```
@@ -72,7 +74,7 @@ A control group of **9 human participants** (with minimum B2 English and Bachelo
 
 ---
 
-## 🎓 Conclusions
+## Conclusions
 
 - **Belief Bias is not unique to humans.** Smaller, older LLMs can replicate it—especially under conflictual item types.
 - **Architecture > Temperature.** Model scale and training strategy are more decisive than temperature for BB resistance.
